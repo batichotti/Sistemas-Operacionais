@@ -31,6 +31,34 @@ void procura_elemento(std::vector<int> v, int ini, int fim, int elem){
     exit(status);
 }
 
+void busca_paralela(std::vector<int> v, int tamanho_vetor, int valor_procurado, int n_filhos){
+    int step = (int) tamanho_vetor/n_filhos;
+    int resto = tamanho_vetor % n_filhos;
+
+    for (int i = 0; i < n_filhos; i++){
+        if(!fork()){
+            if (i == n_filhos-1) procura_elemento(v, i*step, (i+1)*step+resto, valor_procurado);
+            procura_elemento(v, i*step, (i+1)*step, valor_procurado);
+            break;
+        }
+    }
+
+    int nao_encontrado = false;
+    for (int i = 0; i < n_filhos; i++){
+        int status;
+        wait(&status);
+
+        if (WEXITSTATUS(status) == 1) {
+            nao_encontrado = true;
+        }
+    }
+
+    if (nao_encontrado) std::cout << "PROCESSO PAI -> VALOR " << valor_procurado << " NÃO ENCONTRADO" << std::endl;
+
+    // for (int e : v) std::cout << e << " ";
+    // std::cout << std::endl;
+}
+
 int main(int argc, char const *argv[]){
 
     if (argc < 5){
@@ -52,21 +80,7 @@ int main(int argc, char const *argv[]){
 
     // std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    int step = (int) tamanho_vetor/n_filhos;
-    int resto = tamanho_vetor % n_filhos;
-
-    for (int i = 0; i < n_filhos; i++){
-        if(!fork()){
-            if (i == n_filhos-1) procura_elemento(v, i*step, (i+1)*step+resto, valor_procurado);
-            procura_elemento(v, i*step, (i+1)*step, valor_procurado);
-            break;
-        }
-    }
-
-    for (int i = 0; i < n_filhos; i++) wait(nullptr);
-
-    for (int e : v) std::cout << e << " ";
-    std::cout << std::endl;
+    busca_paralela(v, tamanho_vetor, valor_procurado, n_filhos);
     
     return 0;
 }
