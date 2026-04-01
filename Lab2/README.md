@@ -33,7 +33,7 @@ Para executar o programa da questão 2, basta passar o comando desejado (e seus 
 Para executar o programa da questão 3, basta passar o tamanho do vetor, o valor máximo que o vetor pode conter, o valor procurado e o número de filhos como argumentos no terminal durante a chamando do programa:
 
 ```bash
-./3/vector <TAMANHO_VETOR> <MAXIMO_VETOR> <VALOR_PROCURADO> <#_FILHOS>
+./3/vector <TAMANHO_VETOR> <MAXIMO_VETOR> <VALOR_PROCURADO> <N_FILHOS>
 ```
 
 ### 4
@@ -47,13 +47,13 @@ Para executar o programa da questão 4, basta chamar o programa no terminal, ele
 ## Bibliotecas utilizadas
 
 ```c
-#include <iostream> // cout
+#include <iostream> // cout, cin, endl
 #include <unistd.h> // fork()
 #include <sys/wait.h> // wait()
 #include <vector> // vector<T>
 #include <cstdlib> // rand()
-#include <sstream> //  stringstream()
-#include <cstring> // strcmp()
+#include <sstream> //  stringstream() - Manipulação de strings
+#include <cstring> // strcmp() - Manipulação de strings
 ```
 
 ## Exemplos de uso
