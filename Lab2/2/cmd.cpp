@@ -1,4 +1,4 @@
-// Executa comandos como filho
+// Executa um comando informado a partir de um processo filho do programa vigente
 
 #include <iostream> // cout
 #include <unistd.h> // fork()

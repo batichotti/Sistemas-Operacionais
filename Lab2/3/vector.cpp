@@ -1,4 +1,4 @@
-// Busca paralela em um vetor
+// Opera uma busca sequêncial em um vetor não ordenado com N filhos procurando de maneira paralela o número informado.
 
 #include <iostream> // cout
 #include <unistd.h> // fork()

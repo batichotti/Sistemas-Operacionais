@@ -1,4 +1,4 @@
-// executa_comando.cpp
+// Cria um proto-shell responsável por executar comandos informados por usuário com capacidade de execução não bloqueante em segundo plano (&).
 
 #include <iostream> // cout
 #include <unistd.h> // fork()

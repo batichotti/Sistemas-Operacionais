@@ -1,4 +1,4 @@
-// Cria uma árvore de processos com N níveis
+// Cria uma árvore de processos com N níveis de profundidade, onde cada processo cria outros dois postos os níveis informados por usuário
 
 #include <iostream> // cout
 #include <unistd.h> // fork()
