@@ -1,11 +1,11 @@
 // executa_comando.cpp
 
-#include <iostream>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <sstream>
-#include <vector>
-#include <cstring>
+#include <iostream> // cout
+#include <unistd.h> // fork()
+#include <sys/wait.h> // wait()
+#include <vector> // vector<T>
+#include <sstream> //  stringstream()
+#include <cstring> // strcmp()
 
 using namespace std;
 

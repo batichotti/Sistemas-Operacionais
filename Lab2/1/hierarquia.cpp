@@ -38,7 +38,7 @@ int main(int argc, char* argv[]){
 
     int N = atoi(argv[1]);
 
-    cout << "PID: " << getpid() << " | PRCSS PAI | Nível: 1" << endl;
+    cout << "PID: " << getpid() << " | PROCESSO PAI | Nível: 1" << endl;
 
     hierarquia(N);
 

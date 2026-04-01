@@ -1,10 +1,10 @@
 // Busca paralela em um vetor
 
-#include <iostream>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <vector>
-#include <cstdlib>
+#include <iostream> // cout
+#include <unistd.h> // fork()
+#include <sys/wait.h> // wait()
+#include <vector> // vector<T>
+#include <cstdlib> // rand()
 
 std::vector<int> gera_vetor_aleatorio(int tamanho, int max){
     // Gera um vetor de N posicoes com número variando entre 1 e 100

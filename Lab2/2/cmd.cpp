@@ -1,10 +1,10 @@
 // Executa comandos como filho
 
-#include <iostream>
-#include <unistd.h>
-#include <sys/wait.h>
+#include <iostream> // cout
+#include <unistd.h> // fork()
+#include <sys/wait.h> // wait()
 
-void cmd(const char* argv[]){
+void cmd(char* argv[]){
     pid_t pid = fork();
 
     if (!pid){ // É o processo filho? (PID == 0)
