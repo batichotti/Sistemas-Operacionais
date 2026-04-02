@@ -9,6 +9,7 @@
 
 using namespace std;
 
+// Executa um comando tokenizado. Recebe os tokens já separados por espaço. Detecta o símbolo "&" para execução em segundo plano. Converte os tokens para o formato esperado por execvp(). Cria um processo filho para executar o comando. Aguarda o término do filho apenas quando não houver "&".
 void cmd(vector<string>& tokens) {
     vector<char*> args;
     bool daemon_flag = false;
@@ -35,6 +36,7 @@ void cmd(vector<string>& tokens) {
     }
 }
 
+// Loop principal do shell. Exibe o prompt, lê uma linha da entrada padrão, encerra ao receber "exit" e encaminha os comandos tokenizados para cmd() quando houver entrada válida.
 int main() {
     string linha;
 

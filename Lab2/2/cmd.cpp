@@ -4,6 +4,7 @@
 #include <unistd.h> // fork()
 #include <sys/wait.h> // wait()
 
+// Executa o comando informado em um processo filho e aguarda sua finalização.
 void cmd(char* argv[]){
     pid_t pid = fork();
 
@@ -16,6 +17,7 @@ void cmd(char* argv[]){
     std::cout << "Finalizado com sucesso" << std::endl;
 }
 
+// Função principal: valida os argumentos e delega a execução do comando para `cmd`.
 int main(int argc, char* argv[]){
  
     if (argc < 2) {
