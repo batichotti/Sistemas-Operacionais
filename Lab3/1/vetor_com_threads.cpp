@@ -1,3 +1,4 @@
+//Faça um programa com N threads que localiza um valor em um vetor de inteiros. O espaço de busca no vetor deve ser distribuído para as N threads. 
 // Opera uma busca sequêncial em um vetor não ordenado com N threads procurando de maneira paralela o número informado.
 
 #include <iostream>   // cout
