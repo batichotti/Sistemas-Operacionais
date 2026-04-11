@@ -13,6 +13,7 @@
 #include <pthread.h> // threads
 #include <cstdlib> // rand()
 #include <ctime> // time()
+#include <chrono> // tempo de execucao
 
 struct DataStruct {
     const std::vector<std::vector<int>>* matriz;
@@ -235,10 +236,11 @@ int main(int argc, char const* argv[]) {
     if (num_threads < 1) {
         std::cerr << "Erro: numero de threads deve ser >= 1\n";
         return 1;
-    }
+    }    
     
     try {
         std::srand(static_cast<unsigned int>(std::time(nullptr)));
+        auto inicio_execucao = std::chrono::high_resolution_clock::now();
 
         std::vector<std::vector<int>> matriz;
         int linhas = 0, colunas = 0;
@@ -325,6 +327,12 @@ int main(int argc, char const* argv[]) {
         // Salvar resultados em arquivo
         salva_resultados_arquivo(arquivo_saida, medias_linha, medias_coluna);
         std::cout << "\nResultados salvos em: " << arquivo_saida << "\n";
+
+        auto fim_execucao = std::chrono::high_resolution_clock::now();
+        auto tempo_ms = std::chrono::duration_cast<std::chrono::milliseconds>(fim_execucao - inicio_execucao);
+        std::chrono::duration<double> tempo_s = fim_execucao - inicio_execucao;
+        std::cout << "Tempo total de execucao: " << tempo_s.count() << " s ("
+                  << tempo_ms.count() << " ms)\n";
         
     } catch (const std::exception& e) {
         std::cerr << "Erro: " << e.what() << "\n";
