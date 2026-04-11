@@ -43,7 +43,7 @@ int** read_matrix_from_file(char* filename, int *row, int *col) {
    int r, c, value;
 
    fd = fopen (filename, "r");
-   fscanf(fd, "%dx%d\n", &r, &c);
+   fscanf(fd, "%d_%d\n", &r, &c);
  
    int** m = create_matrix(r, c);
    for (int i = 0; i < r; i++)
